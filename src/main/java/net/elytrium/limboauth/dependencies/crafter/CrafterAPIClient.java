@@ -92,10 +92,17 @@ public class CrafterAPIClient {
 
       String endpoint = this.apiUrl + "/website/key/verify";
 
-      HttpRequest request = HttpRequest.newBuilder()
+      HttpRequest.Builder requestBuilder = HttpRequest.newBuilder()
           .uri(URI.create(endpoint))
           .header("Content-Type", "application/json")
-          .header("User-Agent", USER_AGENT)
+          .header("User-Agent", USER_AGENT);
+
+      String originValue = this.getOriginHeaderValue();
+      if (originValue != null) {
+        requestBuilder.header("Origin", originValue);
+      }
+
+      HttpRequest request = requestBuilder
           .POST(HttpRequest.BodyPublishers.ofString(this.gson.toJson(requestBody)))
           .build();
 
@@ -162,7 +169,39 @@ public class CrafterAPIClient {
   }
 
   /**
+   * Normalizes and cleans an IP address string by stripping brackets, ports, and prefixes.
+   *
+   * @param ip The raw IP string
+   * @return The sanitized IP address, or null if invalid/empty
+   */
+  public static String normalizeIp(String ip) {
+    if (ip == null) {
+      return null;
+    }
+    ip = ip.trim();
+    if (ip.startsWith("/")) {
+      ip = ip.substring(1).trim();
+    }
+    // Handle IPv4-mapped IPv6 address, e.g., ::ffff:192.168.1.1
+    if (ip.startsWith("::ffff:") && ip.indexOf('.', 7) != -1) {
+      ip = ip.substring(7).trim();
+    }
+    // Handle bracketed IPv6 with port: [2001:db8::1]:1234
+    if (ip.startsWith("[") && ip.contains("]")) {
+      ip = ip.substring(1, ip.indexOf(']')).trim();
+    } else if (ip.contains(":") && ip.indexOf(':') == ip.lastIndexOf(':')) {
+      // IPv4 with port: 192.168.1.1:1234
+      ip = ip.substring(0, ip.indexOf(':')).trim();
+    }
+    return ip.isEmpty() ? null : ip;
+  }
+
+  /**
    * Helper method to create a request builder with common headers including x-crafter-client-ip.
+   *
+   * @param endpoint The API endpoint URL
+   * @param ipAddress The client IP address
+   * @return The configured HttpRequest.Builder
    */
   private HttpRequest.Builder createRequestBuilder(String endpoint, String ipAddress) {
     HttpRequest.Builder builder = HttpRequest.newBuilder()
@@ -171,10 +210,13 @@ public class CrafterAPIClient {
         .header("User-Agent", USER_AGENT)
         .header("X-API-Secret", this.secretKey);
 
-    if (ipAddress != null && !ipAddress.isEmpty()) {
-      builder.header("x-crafter-client-ip", ipAddress)
-          .header("X-Forwarded-For", ipAddress)
-          .header("X-Real-IP", ipAddress);
+    String clientIp = normalizeIp(ipAddress);
+    if (clientIp != null && !clientIp.isEmpty()) {
+      builder.header("x-crafter-client-ip", clientIp)
+          .header("X-Forwarded-For", clientIp)
+          .header("X-Real-IP", clientIp);
+    } else {
+      this.logger.error("Request to {} was initiated without a valid player IP!", endpoint);
     }
 
     String originValue = this.getOriginHeaderValue();
@@ -763,6 +805,17 @@ public class CrafterAPIClient {
    */
   public CompletableFuture<CrafterResponse> checkUserExists(String username) {
     return this.checkUserExists(username, null);
+  }
+
+  /**
+   * Get user information by username with player IP.
+   *
+   * @param username The username to get information for
+   * @param ipAddress The player IP address
+   * @return The user information response
+   */
+  public CompletableFuture<CrafterResponse> getUserInfo(String username, String ipAddress) {
+    return this.checkUserExists(username, ipAddress);
   }
 
   /**

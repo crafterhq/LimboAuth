@@ -56,6 +56,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
@@ -191,6 +192,7 @@ public class LimboAuth {
   private ConnectionSource connectionSource;
   private CrafterAPIClient crafterAPIClient;
   private CrafterAuthHandler crafterAuthHandler;
+  private final Map<String, String> playerIpCache = new ConcurrentHashMap<>();
   private DatabaseLibrary databaseLibrary;
   private Dao<RegisteredPlayer, String> playerDao;
   private Pattern nicknameValidationPattern;
@@ -586,6 +588,50 @@ public class LimboAuth {
   public void removePlayerFromCacheLowercased(String username) {
     this.cachedAuthChecks.remove(username);
     this.premiumCache.remove(username);
+    this.playerIpCache.remove(username);
+  }
+
+  public static String getPlayerIp(Player player) {
+    if (player == null) {
+      return null;
+    }
+    return getPlayerIp(player.getRemoteAddress());
+  }
+
+  public static String getPlayerIp(InetSocketAddress socketAddress) {
+    if (socketAddress == null) {
+      return null;
+    }
+    if (socketAddress.getAddress() != null) {
+      String host = socketAddress.getAddress().getHostAddress();
+      if (host != null && !host.isEmpty()) {
+        String clean = CrafterAPIClient.normalizeIp(host);
+        if (clean != null && !clean.isEmpty()) {
+          return clean;
+        }
+      }
+    }
+    String host = socketAddress.getHostString();
+    if (host != null && !host.isEmpty()) {
+      String clean = CrafterAPIClient.normalizeIp(host);
+      if (clean != null && !clean.isEmpty()) {
+        return clean;
+      }
+    }
+    return null;
+  }
+
+  public void setPlayerIp(String username, String ip) {
+    if (username != null && ip != null) {
+      this.playerIpCache.put(username.toLowerCase(Locale.ROOT), ip);
+    }
+  }
+
+  public String getPlayerIp(String username) {
+    if (username == null) {
+      return null;
+    }
+    return this.playerIpCache.get(username.toLowerCase(Locale.ROOT));
   }
 
   public boolean needAuth(Player player) {
@@ -625,7 +671,8 @@ public class LimboAuth {
       try {
         // For now, we'll use a synchronous approach to avoid blocking
         // In a production environment, you might want to implement proper async handling
-        String clientIp = player.getRemoteAddress().getAddress().getHostAddress();
+        String clientIp = getPlayerIp(player);
+        this.setPlayerIp(player.getUsername(), clientIp);
         CompletableFuture<RegisteredPlayer> userCheck = this.crafterAuthHandler.checkUserExists(nickname, clientIp);
         
         // Wait for the result with a timeout
@@ -836,9 +883,9 @@ public class LimboAuth {
     // Check if using Crafter CMS
     if (this.databaseLibrary == DatabaseLibrary.CRAFTER && this.crafterAPIClient != null && this.crafterAPIClient.isInitialized()) {
       try {
-        // Use Crafter CMS API to check user existence
-        // Note: IP address is not needed for user existence check, only for auth operations
-        CompletableFuture<CrafterResponse> future = this.crafterAPIClient.checkUserExists(nickname);
+        // Use Crafter CMS API to check user existence with player IP
+        String clientIp = this.getPlayerIp(nickname);
+        CompletableFuture<CrafterResponse> future = this.crafterAPIClient.checkUserExists(nickname, clientIp);
         
         // For now, we'll return UNKNOWN since we can't block here
         // The actual check will be done asynchronously

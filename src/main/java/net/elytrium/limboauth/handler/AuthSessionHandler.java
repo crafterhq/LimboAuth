@@ -161,7 +161,7 @@ public class AuthSessionHandler implements LimboSessionHandler {
       // For Crafter CMS, skip IP limit checks since we don't have playerDao
       if (this.playerDao != null) {
         try {
-          String ip = this.proxyPlayer.getRemoteAddress().getAddress().getHostAddress();
+          String ip = LimboAuth.getPlayerIp(this.proxyPlayer);
           List<RegisteredPlayer> alreadyRegistered = this.playerDao.queryForEq(RegisteredPlayer.IP_FIELD, ip);
           if (alreadyRegistered != null) {
             int sizeOfValidRegistrations = alreadyRegistered.size();
@@ -254,7 +254,7 @@ public class AuthSessionHandler implements LimboSessionHandler {
             }
           } else {
             // Crafter CMS registration - use the API to register the user
-            String ipAddress = this.proxyPlayer.getRemoteAddress().getAddress().getHostAddress();
+            String ipAddress = LimboAuth.getPlayerIp(this.proxyPlayer);
             String email = "";
             
             // Get the plugin instance to access CrafterAuthHandler
@@ -332,7 +332,7 @@ public class AuthSessionHandler implements LimboSessionHandler {
           passwordValid = password.length() > 0 && checkPassword(password, this.playerInfo, this.playerDao);
         } else {
           // Crafter CMS authentication - get IP address and authenticate via API
-          String ipAddress = this.proxyPlayer.getRemoteAddress().getAddress().getHostAddress();
+          String ipAddress = LimboAuth.getPlayerIp(this.proxyPlayer);
           
           // Get the plugin instance to access CrafterAuthHandler
           LimboAuth plugin = (LimboAuth) this.plugin;
@@ -433,7 +433,7 @@ public class AuthSessionHandler implements LimboSessionHandler {
         return;
       } else if (this.crafterState == CrafterAuthState.AWAITING_2FA && (command == Command.TOTP || command == Command.VERIFY)) {
         String input = args[1];
-        String ipAddress = this.proxyPlayer.getRemoteAddress().getAddress().getHostAddress();
+        String ipAddress = LimboAuth.getPlayerIp(this.proxyPlayer);
         LimboAuth plugin = (LimboAuth) this.plugin;
 
         if ("resend".equalsIgnoreCase(input)) {
@@ -473,7 +473,7 @@ public class AuthSessionHandler implements LimboSessionHandler {
         return;
       } else if (this.crafterState == CrafterAuthState.AWAITING_EMAIL_INPUT && (command == Command.EMAIL || command == Command.VERIFY)) {
         String email = args[1];
-        String ipAddress = this.proxyPlayer.getRemoteAddress().getAddress().getHostAddress();
+        String ipAddress = LimboAuth.getPlayerIp(this.proxyPlayer);
         LimboAuth plugin = (LimboAuth) this.plugin;
 
         if (plugin.getCrafterAuthHandler() != null) {
@@ -500,7 +500,7 @@ public class AuthSessionHandler implements LimboSessionHandler {
       } else if (this.crafterState == CrafterAuthState.AWAITING_EMAIL_CODE
           && (command == Command.VERIFY || command == Command.EMAIL || command == Command.TOTP)) {
         String input = args[1];
-        String ipAddress = this.proxyPlayer.getRemoteAddress().getAddress().getHostAddress();
+        String ipAddress = LimboAuth.getPlayerIp(this.proxyPlayer);
         LimboAuth plugin = (LimboAuth) this.plugin;
 
         if ("resend".equalsIgnoreCase(input)) {

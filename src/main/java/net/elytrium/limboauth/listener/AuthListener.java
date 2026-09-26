@@ -32,6 +32,7 @@ import com.velocitypowered.proxy.connection.client.InitialInboundConnection;
 import com.velocitypowered.proxy.connection.client.LoginInboundConnection;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
+import java.net.InetSocketAddress;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.UUID;
@@ -79,6 +80,10 @@ public class AuthListener {
 
     try {
       String username = event.getUsername();
+      if (event.getConnection().getRemoteAddress() instanceof InetSocketAddress) {
+        String clientIp = LimboAuth.getPlayerIp((InetSocketAddress) event.getConnection().getRemoteAddress());
+        this.plugin.setPlayerIp(username, clientIp);
+      }
       if (!event.getResult().isForceOfflineMode()) {
         if (this.plugin.isPremium(username)) {
           event.setResult(PreLoginEvent.PreLoginComponentResult.forceOnlineMode());
