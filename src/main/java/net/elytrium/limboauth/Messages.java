@@ -30,170 +30,170 @@ public class Messages extends YamlConfig {
   public GENERAL GENERAL;
 
   public static class GENERAL {
-    public String RELOAD = "{PRFX} &aYapılandırma ve dil dosyaları başarıyla yenilendi!";
-    public String ERROR_OCCURRED = "{PRFX} &cBir iç hata meydana geldi!";
-    public String RATELIMITED = "{PRFX} &cLütfen tekrar denemeden önce bekleyin!";
-    public String DATABASE_ERROR_KICK = "{PRFX} &cBir veritabanı hatası meydana geldi!";
-    public String NOT_PLAYER = "{PRFX} &cBu komutu sadece oyuncular kullanabilir!";
-    public String NOT_REGISTERED = "{PRFX} &cKayıtlı değilsiniz veya hesabınız &6PREMIUM&c!";
-    public String CRACKED_COMMAND = "{PRFX}{NL}&aHesabınız &6PREMIUM &aolduğu için bu komutu kullanamazsınız!";
-    public String WRONG_PASSWORD = "{PRFX} &cŞifre hatalı!";
-    public String EVENT_CANCELLED = "{PRFX} Giriş işlemi iptal edildi.";
+    public String RELOAD = "{PRFX} &aConfiguration and language files reloaded successfully!";
+    public String ERROR_OCCURRED = "{PRFX} &cAn internal error has occurred!";
+    public String RATELIMITED = "{PRFX} &cPlease wait before next usage!";
+    public String DATABASE_ERROR_KICK = "{PRFX} &cA database error has occurred!";
+    public String NOT_PLAYER = "{PRFX} &cConsole is not allowed to execute this command!";
+    public String NOT_REGISTERED = "{PRFX} &cYou are not registered or your account is &6PREMIUM&c!";
+    public String CRACKED_COMMAND = "{PRFX}{NL}&aYou can not use this command since your account is &6PREMIUM&a!";
+    public String WRONG_PASSWORD = "{PRFX} &cPassword is wrong!";
+    public String EVENT_CANCELLED = "{PRFX} Authorization event was cancelled.";
   }
 
   @Create
   public AUTH AUTH;
 
   public static class AUTH {
-    public String LOGIN = "{PRFX} &aLütfen &6/login <şifre> &akullanarak giriş yapınız, &6{0} &ahakkınız var.";
-    public String LOGIN_WRONG_PASSWORD = "{PRFX} &cHatalı şifre girdiniz, kalan hakkınız: &6{0}&c.";
-    public String LOGIN_WRONG_PASSWORD_KICK = "{PRFX}{NL}&cÇok fazla hatalı şifre girdiniz!";
-    public String LOGIN_SUCCESSFUL = "{PRFX} &aBaşarıyla giriş yapıldı!";
-    public String LOGIN_TITLE = "&fLütfen giriş yapın: &6/login <şifre>";
-    public String LOGIN_SUBTITLE = "&aKalan hakkınız: &6{0}";
+    public String LOGIN = "{PRFX} &aPlease, login using &6/login <password>&a, you have &6{0} &aattempts.";
+    public String LOGIN_WRONG_PASSWORD = "{PRFX} &cYou've entered the wrong password, you have &6{0} &cattempts left.";
+    public String LOGIN_WRONG_PASSWORD_KICK = "{PRFX}{NL}&cYou've entered the wrong password numerous times!";
+    public String LOGIN_SUCCESSFUL = "{PRFX} &aSuccessfully logged in!";
+    public String LOGIN_TITLE = "&fPlease, login using &6/login <password>&a.";
+    public String LOGIN_SUBTITLE = "&aYou have &6{0} &aattempts left.";
     public String LOGIN_SUCCESSFUL_TITLE = "{PRFX}";
-    public String LOGIN_SUCCESSFUL_SUBTITLE = "&aBaşarıyla giriş yapıldı!";
+    public String LOGIN_SUCCESSFUL_SUBTITLE = "&aSuccessfully logged in!";
 
-    public String BOSSBAR = "{PRFX} Giriş yapmak için &6{0} &fsaniyeniz kaldı.";
-    public String TIMES_UP = "{PRFX}{NL}&cGiriş süreniz doldu.";
-    public String SESSION_EXPIRED = "{PRFX} Oturumunuzun süresi doldu, lütfen tekrar giriş yapınız.";
+    public String BOSSBAR = "{PRFX} You have &6{0} &fseconds left to log in.";
+    public String TIMES_UP = "{PRFX}{NL}&cAuthorization time is up.";
+    public String SESSION_EXPIRED = "{PRFX} Your session has expired, log in again.";
 
-    public String LOGIN_PREMIUM = "{PRFX} Premium hesabınız ile otomatik olarak giriş yapıldı!";
-    public String LOGIN_PREMIUM_TITLE = "{PRFX} Hoş Geldiniz!";
-    public String LOGIN_PREMIUM_SUBTITLE = "&aPremium oyuncu olarak doğrulandınız!";
+    public String LOGIN_PREMIUM = "{PRFX} You've been logged in automatically using the premium account!";
+    public String LOGIN_PREMIUM_TITLE = "{PRFX} Welcome!";
+    public String LOGIN_PREMIUM_SUBTITLE = "&aYou have been logged in as premium player!";
 
-    public String LOGIN_FLOODGATE = "{PRFX} Bedrock hesabınız ile otomatik olarak giriş yapıldı!";
-    public String LOGIN_FLOODGATE_TITLE = "{PRFX} Hoş Geldiniz!";
-    public String LOGIN_FLOODGATE_SUBTITLE = "&aBedrock oyuncusu olarak doğrulandınız!";
+    public String LOGIN_FLOODGATE = "{PRFX} You've been logged in automatically using the bedrock account!";
+    public String LOGIN_FLOODGATE_TITLE = "{PRFX} Welcome!";
+    public String LOGIN_FLOODGATE_SUBTITLE = "&aYou have been logged in as bedrock player!";
   }
 
   @Create
   public REGISTER REGISTER;
 
   public static class REGISTER {
-    public String REGISTER = "{PRFX} Lütfen kayıt olun: &6/register <şifre> <şifre-tekrar>";
-    public String REGISTER_DIFFERENT_PASSWORDS = "{PRFX} &cGirilen şifreler birbiriyle uyuşmuyor!";
-    public String REGISTER_PASSWORD_TOO_SHORT = "{PRFX} &cGirdiğiniz şifre çok kısa, daha uzun bir şifre seçin!";
-    public String REGISTER_PASSWORD_TOO_LONG = "{PRFX} &cGirdiğiniz şifre çok uzun, daha kısa bir şifre seçin!";
-    public String REGISTER_PASSWORD_UNSAFE = "{PRFX} &cGirdiğiniz şifre güvenli değil, lütfen farklı bir şifre belirleyin!";
-    public String REGISTER_SUCCESSFUL = "{PRFX} &aBaşarıyla kayıt olundu!";
+    public String REGISTER = "{PRFX} Please, register using &6/register <password> <repeat password>";
+    public String REGISTER_DIFFERENT_PASSWORDS = "{PRFX} &cThe entered passwords differ from each other!";
+    public String REGISTER_PASSWORD_TOO_SHORT = "{PRFX} &cYou entered a too short password, use a different one!";
+    public String REGISTER_PASSWORD_TOO_LONG = "{PRFX} &cYou entered a too long password, use a different one!";
+    public String REGISTER_PASSWORD_UNSAFE = "{PRFX} &cYour password is unsafe, use a different one!";
+    public String REGISTER_SUCCESSFUL = "{PRFX} &aSuccessfully registered!";
     public String REGISTER_TITLE = "{PRFX}";
-    public String REGISTER_SUBTITLE = "&aLütfen kayıt olun: &6/register <şifre> <şifre-tekrar>";
+    public String REGISTER_SUBTITLE = "&aPlease, register using &6/register <password> <repeat password>";
     public String REGISTER_SUCCESSFUL_TITLE = "{PRFX}";
-    public String REGISTER_SUCCESSFUL_SUBTITLE = "&aBaşarıyla kayıt olundu!";
+    public String REGISTER_SUCCESSFUL_SUBTITLE = "&aSuccessfully registered!";
   }
 
   @Create
   public CRAFTER CRAFTER;
 
   public static class CRAFTER {
-    public String EMAIL_INPUT_PROMPT = "{PRFX} &eLütfen hesabınıza ait geçerli e-posta adresinizi giriniz: &6/email <adres>";
-    public String REGISTER_EMAIL_SENT = "{PRFX} &aKayıt başarılı! E-posta adresinize (&e{0}&a) gönderilen kodu giriniz: &6/verify <kod>";
-    public String SERVICE_UNAVAILABLE = "{PRFX} &cKayıt ve kimlik doğrulama servisine ulaşılamıyor. Lütfen daha sonra tekrar deneyiniz.";
-    public String REGISTER_ERROR = "{PRFX} &cKayıt hatası: &e{0}";
-    public String TWO_FACTOR_EMAIL_SENT = "{PRFX} &eİki adımlı doğrulama kodu e-postanıza gönderildi.";
-    public String TWO_FACTOR_DISCORD_SENT = "{PRFX} &eİki adımlı doğrulama kodu Discord üzerinden iletildi.";
-    public String TWO_FACTOR_CODE_PROMPT = "{PRFX} &eLütfen kodu giriniz: &6/2fa <kod>";
-    public String TWO_FACTOR_RESEND_HINT = "{PRFX} &7(Tekrar göndermek için: &6/2fa resend&7)";
-    public String TWO_FACTOR_APP_REQUIRED = "{PRFX} &eİki adımlı doğrulama gereklidir.";
-    public String TWO_FACTOR_APP_PROMPT = "{PRFX} &eAuthenticator uygulamanızdaki kodu veya kurtarma kodunuzu giriniz: &6/2fa <kod>";
-    public String LOGIN_EMAIL_INPUT_REQUIRED = "{PRFX} &eOyundan kayıt olduğunuz için lütfen geçerli e-posta adresinizi giriniz: &6/email <adres>";
-    public String LOGIN_EMAIL_SENT = "{PRFX} &eHesabınıza giriş yapabilmek için (&e{0}&e) e-posta adresinize gönderilen kodu giriniz: &6/verify <kod>";
-    public String LOGIN_EMAIL_RESEND_HINT = "{PRFX} &7(Tekrar göndermek için: &6/email resend&7)";
-    public String RESEND_SUCCESS = "{PRFX} &aYeni doğrulama kodu başarıyla gönderildi.";
-    public String RESEND_FAILED = "{PRFX} &cKod gönderilemedi: &e{0}";
-    public String RESEND_ERROR = "{PRFX} &cKod gönderme hatası: &e{0}";
-    public String TWO_FACTOR_SUCCESS = "{PRFX} &aİki adımlı doğrulama başarılı!";
-    public String TWO_FACTOR_INVALID_CODE = "{PRFX} &cGeçersiz veya süresi dolmuş 2FA kodu!";
-    public String TWO_FACTOR_ERROR = "{PRFX} &c2FA doğrulama hatası: &e{0}";
-    public String EMAIL_UPDATED_CODE_SENT = "{PRFX} &aDoğrulama kodu &6{0} &aadresine gönderildi!";
-    public String EMAIL_CODE_INPUT_PROMPT = "{PRFX} &eLütfen 6 haneli kodu giriniz: &6/verify <kod> &eya da &6/email <kod>";
-    public String EMAIL_UPDATE_FAILED = "{PRFX} &cE-posta güncellenemedi! Geçerli ve kullanılmayan bir e-posta adresi giriniz.";
-    public String EMAIL_UPDATE_ERROR = "{PRFX} &cE-posta güncelleme hatası: &e{0}";
-    public String EMAIL_VERIFY_SUCCESS = "{PRFX} &aE-posta adresiniz başarıyla doğrulandı!";
-    public String EMAIL_VERIFY_INVALID_CODE = "{PRFX} &cGeçersiz veya süresi dolmuş doğrulama kodu!";
-    public String EMAIL_VERIFY_ERROR = "{PRFX} &cE-posta doğrulama hatası: &e{0}";
-    public String AUTH_ERROR = "{PRFX} &cKimlik doğrulama hatası: &e{0}";
+    public String EMAIL_INPUT_PROMPT = "{PRFX} &ePlease enter a valid email address for your account: &6/email <address>";
+    public String REGISTER_EMAIL_SENT = "{PRFX} &aRegistration successful! Enter the code sent to your email (&e{0}&a): &6/verify <code>";
+    public String SERVICE_UNAVAILABLE = "{PRFX} &cRegistration and authentication service unavailable. Please try again later.";
+    public String REGISTER_ERROR = "{PRFX} &cRegistration error: &e{0}";
+    public String TWO_FACTOR_EMAIL_SENT = "{PRFX} &eTwo-factor authentication code was sent to your email.";
+    public String TWO_FACTOR_DISCORD_SENT = "{PRFX} &eTwo-factor authentication code was sent via Discord.";
+    public String TWO_FACTOR_CODE_PROMPT = "{PRFX} &ePlease enter your code: &6/2fa <code>";
+    public String TWO_FACTOR_RESEND_HINT = "{PRFX} &7(To resend code: &6/2fa resend&7)";
+    public String TWO_FACTOR_APP_REQUIRED = "{PRFX} &eTwo-factor authentication is required.";
+    public String TWO_FACTOR_APP_PROMPT = "{PRFX} &eEnter the code from your authenticator app or recovery code: &6/2fa <code>";
+    public String LOGIN_EMAIL_INPUT_REQUIRED = "{PRFX} &eSince you registered in-game, please enter a valid email: &6/email <address>";
+    public String LOGIN_EMAIL_SENT = "{PRFX} &eTo log into your account, enter the code sent to (&e{0}&e): &6/verify <code>";
+    public String LOGIN_EMAIL_RESEND_HINT = "{PRFX} &7(To resend code: &6/email resend&7)";
+    public String RESEND_SUCCESS = "{PRFX} &aA new verification code has been sent successfully.";
+    public String RESEND_FAILED = "{PRFX} &cCould not send code: &e{0}";
+    public String RESEND_ERROR = "{PRFX} &cCode sending error: &e{0}";
+    public String TWO_FACTOR_SUCCESS = "{PRFX} &aTwo-factor authentication successful!";
+    public String TWO_FACTOR_INVALID_CODE = "{PRFX} &cInvalid or expired 2FA code!";
+    public String TWO_FACTOR_ERROR = "{PRFX} &c2FA verification error: &e{0}";
+    public String EMAIL_UPDATED_CODE_SENT = "{PRFX} &aVerification code sent to &6{0}&a!";
+    public String EMAIL_CODE_INPUT_PROMPT = "{PRFX} &ePlease enter the 6-digit code: &6/verify <code> &eor &6/email <code>";
+    public String EMAIL_UPDATE_FAILED = "{PRFX} &cCould not update email! Please enter a valid and unused email address.";
+    public String EMAIL_UPDATE_ERROR = "{PRFX} &cEmail update error: &e{0}";
+    public String EMAIL_VERIFY_SUCCESS = "{PRFX} &aYour email address has been verified successfully!";
+    public String EMAIL_VERIFY_INVALID_CODE = "{PRFX} &cInvalid or expired verification code!";
+    public String EMAIL_VERIFY_ERROR = "{PRFX} &cEmail verification error: &e{0}";
+    public String AUTH_ERROR = "{PRFX} &cAuthentication error: &e{0}";
 
-    public String REMINDER_2FA = "§eLütfen 2FA kodunuzu giriniz: §6/2fa <kod>";
-    public String REMINDER_EMAIL_INPUT = "§eLütfen geçerli e-posta adresinizi giriniz: §6/email <adres>";
-    public String REMINDER_EMAIL_CODE = "§eLütfen e-posta doğrulama kodunuzu giriniz: §6/verify <kod>";
+    public String REMINDER_2FA = "§ePlease enter your 2FA code: §6/2fa <code>";
+    public String REMINDER_EMAIL_INPUT = "§ePlease enter a valid email address: §6/email <address>";
+    public String REMINDER_EMAIL_CODE = "§ePlease enter your email verification code: §6/verify <code>";
   }
 
   @Create
   public KICK KICK;
 
   public static class KICK {
-    public String NICKNAME_INVALID = "{PRFX}{NL}&cKullanıcı adınız geçersiz karakterler içeriyor. Lütfen kullanıcı adınızı değiştiriniz!";
-    public String RECONNECT = "{PRFX}{NL}&cHesabınızı doğrulamak için lütfen sunucuya yeniden bağlanın!";
-    public String IP_LIMIT = "{PRFX}{NL}{NL}&cBu IP adresinden açılabilecek maksimum hesap sınırına ulaştınız.";
-    public String WRONG_NICKNAME_CASE = "{PRFX}{NL}&cLütfen büyük/küçük harfe dikkat ederek &6{0} &ckullanıcı adıyla girin, &6{1} &cdeğil.";
-    public String REGISTRATIONS_DISABLED = "{PRFX} Kayıtlar şu anda devre dışıdır.";
+    public String NICKNAME_INVALID = "{PRFX}{NL}&cYour nickname contains forbidden characters. Please, change your nickname!";
+    public String RECONNECT = "{PRFX}{NL}&cReconnect to the server to verify your account!";
+    public String IP_LIMIT = "{PRFX}{NL}{NL}&cYour IP has reached max registered accounts. If this is an error, restart your router, or wait about 6 hours.";
+    public String WRONG_NICKNAME_CASE = "{PRFX}{NL}&cYou should join using username &6{0}&c, not &6{1}&c.";
+    public String REGISTRATIONS_DISABLED = "{PRFX} Registrations are currently disabled.";
   }
 
   @Create
   public TOTP TOTP;
 
   public static class TOTP {
-    public String PROMPT = "{PRFX} Lütfen 2FA anahtarınızı giriniz: &6/2fa <anahtar>";
+    public String PROMPT = "{PRFX} Please, enter your 2FA key using &6/2fa <key>";
     public String TITLE = "{PRFX}";
-    public String SUBTITLE = "&a2FA anahtarınızı giriniz: &6/2fa <anahtar>";
-    public String SUCCESSFUL = "{PRFX} &a2FA başarıyla etkinleştirildi!";
-    public String DISABLED = "{PRFX} &a2FA başarıyla devre dışı bırakıldı!";
-    public String USAGE = "{PRFX} Kullanım: &6/2fa enable <mevcut şifre>&f veya &6/2fa disable <2fa kodu>&f.";
-    public String WRONG = "{PRFX} &cHatalı 2FA kodu!";
-    public String ALREADY_ENABLED = "{PRFX} &c2FA zaten etkin. Devre dışı bırakmak için: &6/2fa disable <kod>&c.";
-    public String QR = "{PRFX} Tarayıcıda 2FA QR kodunu açmak için buraya tıklayın.";
-    public String TOKEN = "{PRFX} &a2FA anahtarınız &7(Kopyalamak için tıkla)&a: &6{0}";
-    public String RECOVERY = "{PRFX} &aKurtarma kodlarınız &7(Kopyalamak için tıkla)&a: &6{0}";
+    public String SUBTITLE = "&aEnter your 2FA key using &6/2fa <key>";
+    public String SUCCESSFUL = "{PRFX} &aSuccessfully enabled 2FA!";
+    public String DISABLED = "{PRFX} &aSuccessfully disabled 2FA!";
+    public String USAGE = "{PRFX} Usage: &6/2fa enable <current password>&f or &6/2fa disable <totp key>&f.";
+    public String WRONG = "{PRFX} &cWrong 2FA key!";
+    public String ALREADY_ENABLED = "{PRFX} &c2FA is already enabled. Disable it using &6/2fa disable <key>&c.";
+    public String QR = "{PRFX} Click here to open 2FA QR code in browser.";
+    public String TOKEN = "{PRFX} &aYour 2FA token &7(Click to copy)&a: &6{0}";
+    public String RECOVERY = "{PRFX} &aYour recovery codes &7(Click to copy)&a: &6{0}";
   }
 
   @Create
   public COMMANDS COMMANDS;
 
   public static class COMMANDS {
-    public String CHANGE_PASSWORD_SUCCESSFUL = "{PRFX} &aŞifreniz başarıyla değiştirildi!";
-    public String CHANGE_PASSWORD_USAGE = "{PRFX} Kullanım: &6/changepassword <eski şifre> <yeni şifre>";
-    public String UNREGISTER_SUCCESSFUL = "{PRFX}{NL}&aKaydınız başarıyla silindi!";
-    public String UNREGISTER_USAGE = "{PRFX} Kullanım: &6/unregister <mevcut şifre> confirm";
-    public String PREMIUM_SUCCESSFUL = "{PRFX}{NL}&aHesap durumunuz başarıyla &6PREMIUM &aolarak güncellendi!";
-    public String ALREADY_PREMIUM = "{PRFX} &cHesabınız zaten &6PREMIUM&c!";
-    public String NOT_PREMIUM = "{PRFX} &cHesabınız &6PREMIUM &cdeğil!";
-    public String PREMIUM_USAGE = "{PRFX} Kullanım: &6/premium <mevcut şifre> confirm";
-    public String DESTROY_SESSION_SUCCESSFUL = "{PRFX} &eOturumunuz sonlandırıldı, tekrar bağlandığınızda giriş yapmanız gerekecektir.";
+    public String CHANGE_PASSWORD_SUCCESSFUL = "{PRFX} &aSuccessfully changed password!";
+    public String CHANGE_PASSWORD_USAGE = "{PRFX} Usage: &6/changepassword <old password> <new password>";
+    public String UNREGISTER_SUCCESSFUL = "{PRFX}{NL}&aSuccessfully unregistered!";
+    public String UNREGISTER_USAGE = "{PRFX} Usage: &6/unregister <current password> confirm";
+    public String PREMIUM_SUCCESSFUL = "{PRFX}{NL}&aSuccessfully changed account state to &6PREMIUM&a!";
+    public String ALREADY_PREMIUM = "{PRFX} &cYour account is already &6PREMIUM&c!";
+    public String NOT_PREMIUM = "{PRFX} &cYour account is not &6PREMIUM&c!";
+    public String PREMIUM_USAGE = "{PRFX} Usage: &6/premium <current password> confirm";
+    public String DESTROY_SESSION_SUCCESSFUL = "{PRFX} &eYour session is now destroyed, you'll need to log in again after reconnecting.";
   }
 
   @Create
   public ADMIN ADMIN;
 
   public static class ADMIN {
-    public String FORCE_UNREGISTER_SUCCESSFUL = "{PRFX} &6{0} &aadlı oyuncunun kaydı başarıyla silindi!";
-    public String FORCE_UNREGISTER_KICK = "{PRFX}{NL}&aKaydınız bir yönetici tarafından silindi!";
-    public String FORCE_UNREGISTER_NOT_SUCCESSFUL = "{PRFX} &c{0} adlı oyuncunun kaydı silinemedi.";
-    public String FORCE_UNREGISTER_USAGE = "{PRFX} Kullanım: &6/forceunregister <kullanıcı_adı>";
-    public String FORCE_CHANGE_PASSWORD_SUCCESSFUL = "{PRFX} &a{0} adlı oyuncunun şifresi başarıyla değiştirildi!";
-    public String FORCE_CHANGE_PASSWORD_MESSAGE = "{PRFX} &aŞifreniz bir yönetici tarafından &6{0} &aolarak değiştirildi!";
-    public String FORCE_CHANGE_PASSWORD_NOT_SUCCESSFUL = "{PRFX} &c{0} adlı oyuncunun şifresi değiştirilemedi.";
-    public String FORCE_CHANGE_PASSWORD_NOT_REGISTERED = "{PRFX} &c{0} adlı oyuncu kayıtlı değil.";
-    public String FORCE_CHANGE_PASSWORD_USAGE = "{PRFX} Kullanım: &6/forcechangepassword <kullanıcı_adı> <yeni_şifre>";
-    public String FORCE_REGISTER_USAGE = "{PRFX} Kullanım: &6/forceregister <kullanıcı_adı> <şifre>";
-    public String FORCE_REGISTER_INCORRECT_NICKNAME = "{PRFX} &cKullanıcı adı geçersiz karakterler içeriyor.";
-    public String FORCE_REGISTER_TAKEN_NICKNAME = "{PRFX} &cBu kullanıcı adı zaten alınmış.";
-    public String FORCE_REGISTER_SUCCESSFUL = "{PRFX} &a{0} adlı oyuncu başarıyla kaydedildi!";
-    public String FORCE_REGISTER_NOT_SUCCESSFUL = "{PRFX} &c{0} adlı oyuncu kaydedilemedi.";
-    public String FORCE_LOGIN_USAGE = "{PRFX} Kullanım: &6/forcelogin <kullanıcı_adı>";
-    public String FORCE_LOGIN_SUCCESSFUL = "{PRFX} &a{0} adlı oyuncu başarıyla giriş yaptırıldı!";
-    public String FORCE_LOGIN_UNKNOWN_PLAYER = "{PRFX} &c{0} kullanıcı adlı aktif oyuncu bulunamadı!";
+    public String FORCE_UNREGISTER_SUCCESSFUL = "{PRFX} &6{0} &asuccessfully unregistered!";
+    public String FORCE_UNREGISTER_KICK = "{PRFX}{NL}&aYou have been unregistered by an administrator!";
+    public String FORCE_UNREGISTER_NOT_SUCCESSFUL = "{PRFX} &cUnable to unregister &6{0}&c. Most likely this player has never been on this server.";
+    public String FORCE_UNREGISTER_USAGE = "{PRFX} Usage: &6/forceunregister <nickname>";
+    public String FORCE_CHANGE_PASSWORD_SUCCESSFUL = "{PRFX} &aSuccessfully changed password for player &6{0}&a!";
+    public String FORCE_CHANGE_PASSWORD_MESSAGE = "{PRFX} &aYour password has been changed to &6{0} &aby an administator!";
+    public String FORCE_CHANGE_PASSWORD_NOT_SUCCESSFUL = "{PRFX} &cUnable to change password for &6{0}&c. Most likely this player has never been on this server.";
+    public String FORCE_CHANGE_PASSWORD_NOT_REGISTERED = "{PRFX} &cPlayer &6{0}&c is not registered.";
+    public String FORCE_CHANGE_PASSWORD_USAGE = "{PRFX} Usage: &6/forcechangepassword <nickname> <new password>";
+    public String FORCE_REGISTER_USAGE = "{PRFX} Usage: &6/forceregister <nickname> <password>";
+    public String FORCE_REGISTER_INCORRECT_NICKNAME = "{PRFX} &cNickname contains forbidden characters.";
+    public String FORCE_REGISTER_TAKEN_NICKNAME = "{PRFX} &cThis nickname is already taken.";
+    public String FORCE_REGISTER_SUCCESSFUL = "{PRFX} &aSuccessfully registered player &6{0}&a!";
+    public String FORCE_REGISTER_NOT_SUCCESSFUL = "{PRFX} &cUnable to register player &6{0}&c.";
+    public String FORCE_LOGIN_USAGE = "{PRFX} Usage: &6/forcelogin <nickname>";
+    public String FORCE_LOGIN_SUCCESSFUL = "{PRFX} &aSuccessfully authenticated &6{0}&a!";
+    public String FORCE_LOGIN_UNKNOWN_PLAYER = "{PRFX} &cUnable to find authenticating player with username &6{0}&a!";
 
-    public String HELP_HEADER = "Bu sunucu LimboAuth ve LimboAPI kullanmaktadır.";
+    public String HELP_HEADER = "This server is using LimboAuth and LimboAPI.";
     public String HELP_COPYRIGHT = "(C) 2021 - 2025 Elytrium & Crafter";
     public String HELP_URL = "https://crafter.net.tr";
-    public String SUBCOMMANDS_AVAILABLE = "Kullanılabilir alt komutlar:";
-    public String SUBCOMMANDS_NONE = "Kullanabileceğiniz bir alt komut bulunmuyor.";
-    public String SUBCOMMAND_RELOAD_DESC = "Yapılandırma ve dil dosyalarını yeniler.";
-    public String SUBCOMMAND_TEST_CRAFTER_DESC = "Crafter CMS API bağlantısını test eder.";
-    public String TEST_CRAFTER_TESTING = "{PRFX} &eCrafter CMS API bağlantısı test ediliyor...";
-    public String TEST_CRAFTER_RESULT = "{PRFX} &aTest sonucu: &f{0}";
-    public String TEST_CRAFTER_NOT_AVAILABLE = "{PRFX} &cCrafter CMS API istemcisi aktif değil.";
+    public String SUBCOMMANDS_AVAILABLE = "Available subcommands:";
+    public String SUBCOMMANDS_NONE = "There is no available subcommands for you.";
+    public String SUBCOMMAND_RELOAD_DESC = "Reload configuration and language files.";
+    public String SUBCOMMAND_TEST_CRAFTER_DESC = "Test Crafter CMS API connection.";
+    public String TEST_CRAFTER_TESTING = "{PRFX} &eTesting Crafter CMS API connection...";
+    public String TEST_CRAFTER_RESULT = "{PRFX} &aTest result: &f{0}";
+    public String TEST_CRAFTER_NOT_AVAILABLE = "{PRFX} &cCrafter CMS API client is not available.";
   }
 }

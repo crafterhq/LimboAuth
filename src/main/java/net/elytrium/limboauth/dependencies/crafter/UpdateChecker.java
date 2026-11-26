@@ -110,11 +110,11 @@ public class UpdateChecker {
 
   private void notifyUpdate(String latestVersion, String downloadUrl) {
     LOGGER.warn("****************************************************");
-    LOGGER.warn("Yeni bir LimboAuth güncellemesi mevcut! / A new LimboAuth update is available!");
+    LOGGER.warn("A new LimboAuth update is available!");
     if (latestVersion != null && !latestVersion.isEmpty()) {
-      LOGGER.warn("En son sürüm / Latest version: {} (Mevcut / Current: {})", latestVersion, this.currentVersion);
+      LOGGER.warn("Latest version: {} (current: {})", latestVersion, this.currentVersion);
     }
-    LOGGER.warn("İndirme adresi / Download: {}", downloadUrl);
+    LOGGER.warn("Download: {}", downloadUrl);
     LOGGER.warn("****************************************************");
   }
 
